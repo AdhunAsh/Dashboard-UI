@@ -8,6 +8,7 @@ export const dealsData = [
         piece: 423,
         amount: "$34,295",
         status: "Delivered",
+        month: "October",
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export const dealsData = [
         piece: 285,
         amount: "$58,490",
         status: "Pending",
+        month: "October",
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ export const dealsData = [
         piece: 156,
         amount: "$72,850",
         status: "Delivered",
+        month: "December",
     },
     {
         id: 4,
@@ -38,6 +41,7 @@ export const dealsData = [
         piece: 512,
         amount: "$19,680",
         status: "Rejected",
+        month: "November",
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ export const dealsData = [
         piece: 198,
         amount: "$46,320",
         status: "Delivered",
+        month: "October",
     },
     {
         id: 6,
@@ -58,6 +63,7 @@ export const dealsData = [
         piece: 347,
         amount: "$63,750",
         status: "Pending",
+        month: "December",
     },
     {
         id: 7,
@@ -68,6 +74,7 @@ export const dealsData = [
         piece: 264,
         amount: "$31,480",
         status: "Delivered",
+        month: "November",
     },
     {
         id: 8,
@@ -78,6 +85,7 @@ export const dealsData = [
         piece: 112,
         amount: "$54,900",
         status: "Rejected",
+        month: "November",
     },
     {
         id: 9,
@@ -88,6 +96,7 @@ export const dealsData = [
         piece: 231,
         amount: "$39,670",
         status: "Pending",
+        month: "October",
     },
     {
         id: 10,
@@ -98,5 +107,6 @@ export const dealsData = [
         piece: 76,
         amount: "$89,200",
         status: "Delivered",
+        month: "December",
     },
 ];
