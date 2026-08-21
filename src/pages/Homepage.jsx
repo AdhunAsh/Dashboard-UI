@@ -11,7 +11,6 @@ const Homepage = () => {
             style={{
                 display: "flex",
                 flexDirection: "row",
-                height: "100vh",
                 width: "100vw",
             }}
         >
