@@ -2,9 +2,11 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Dashboard from "../components/DashBoard";
+import "../index.css";
 
 const Homepage = () => {
     const [activePage, setActivePage] = useState("dashboard");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
         <div
@@ -15,13 +17,21 @@ const Homepage = () => {
         >
             {/* sidebar */}
             <div
+                className={`sidebar-container ${
+                    isSidebarOpen ? "sidebar-open" : ""
+                }`}
                 style={{
                     display: "flex",
                     width: "240px",
                     minWidth: "240px",
                 }}
             >
-                <Sidebar activePage={activePage} onPageChange={setActivePage} />
+                <Sidebar
+                    activePage={activePage}
+                    onPageChange={setActivePage}
+                    onClose={() => setIsSidebarOpen(false)}
+                    isSidebarOpen={isSidebarOpen}
+                />
             </div>
 
             {/* navbar and contents */}
@@ -34,7 +44,10 @@ const Homepage = () => {
                     minWidth: 0,
                 }}
             >
-                <Navbar />
+                <Navbar
+                    onMenuClick={() => setIsSidebarOpen(true)}
+                    isSidebarOpen={isSidebarOpen}
+                />
 
                 <main
                     className="main-content"
@@ -45,12 +58,8 @@ const Homepage = () => {
                         padding: "30px 33px  30px 30px",
                     }}
                 >
-                    {activePage === "dashboard" && (
-                        <Dashboard />
-                    )}
-                    {activePage !== "dashboard" && (
-                        <h1>coming soon...</h1>
-                    )}
+                    {activePage === "dashboard" && <Dashboard />}
+                    {activePage !== "dashboard" && <h1>coming soon...</h1>}
                 </main>
             </div>
         </div>

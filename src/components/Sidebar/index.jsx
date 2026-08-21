@@ -20,11 +20,11 @@ const pageItems = [
     { id: "table", label: "Table" },
 ];
 
-const items =[
+const items = [
     { id: "settings", label: "Settings" },
     { id: "logout", label: "Logout" },
-]
-const Sidebar = ({ activePage, onPageChange }) => {
+];
+const Sidebar = ({ activePage, onPageChange, onClose, isSidebarOpen }) => {
     return (
         <div
             style={{
@@ -35,19 +35,47 @@ const Sidebar = ({ activePage, onPageChange }) => {
             }}
         >
             {/* title */}
-            <p
+            <div
                 style={{
-                    margin: 0,
-                    paddingLeft: "66px",
-                    fontFamily: "Nunito",
-                    fontWeight: "800",
-                    lineHeight: "100%",
-                    fontSize: "24px",
-                    color: "#4880FF",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
                 }}
             >
-                Dash<span style={{ color: "#202224" }}>Stack</span>
-            </p>
+                <p
+                    style={{
+                        margin: 0,
+                        paddingLeft: "66px",
+                        fontFamily: "Nunito",
+                        fontWeight: "800",
+                        lineHeight: "100%",
+                        fontSize: "24px",
+                        color: "#4880FF",
+                    }}
+                >
+                    Dash<span style={{ color: "#202224" }}>Stack</span>
+                </p>
+                {isSidebarOpen && (
+                    <button
+                        style={{
+                            display: "block",
+                            position: "absolute",
+                            left: "15px",
+                            top: "20px",
+                            height: "0px",
+                            border: "none",
+                            borderRadius: "6px",
+                            margin: "0",
+                            backgroundColor: "transparent",
+                            fontSize: "25px",
+                            cursor: "pointer",
+                        }}
+                        onClick={onClose}
+                    >
+                        x
+                    </button>
+                )}
+            </div>
 
             {/* menu items */}
             <div
@@ -61,7 +89,10 @@ const Sidebar = ({ activePage, onPageChange }) => {
                 {menuItems.map((item) => (
                     <button
                         key={item.id}
-                        onClick={() => onPageChange(item.id)}
+                        onClick={() => {
+                            onPageChange(item.id);
+                            onClose?.();
+                        }}
                         style={{
                             position: "relative",
                             width: "calc(100% - 40px)",

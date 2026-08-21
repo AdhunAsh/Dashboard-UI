@@ -1,0 +1,78 @@
+.statCardsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-top: 27px;
+    overflow-x: auto;
+    width: 100%;
+    background-color: transparent;
+}
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    box-shadow: 6px 6px 54px 0px #0000000d;
+    border-radius: 14px;
+    width: 262px;
+    min-width: 240px;
+    background-color: #ffffff;
+}
+
+.statCardTitle {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #202224;
+    margin: 0;
+}
+
+.statCardValue {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 100%;
+    color: #202224;
+    margin: 0;
+}
+
+.statCardIcon {
+    height: 60px;
+    width: 60px;
+}
+
+.statCardTrend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .statCardsContainer {
+        margin-top: 20px;
+    }
+    .statCard {
+        width: 200px;
+        min-width: 200px;
+        padding: 14px;
+    }
+    .statCardTitle {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .statCardValue {
+        font-size: 22px;
+        font-weight: 550;
+    }
+    .statCardIcon {
+        height: 50px;
+        width: 50px;
+    }
+    .statCardTrend {
+        margin-top: 20px;
+    }
+}

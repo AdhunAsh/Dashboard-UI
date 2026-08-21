@@ -1,7 +1,7 @@
 import BellIcon from "@/assets/svg/BellIcon.svg";
 import Flag from "@/assets/svg/Flag.svg";
 
-const Navbar = () => {
+const Navbar = ({ onMenuClick, isSidebarOpen }) => {
     return (
         <div
             style={{
@@ -12,6 +12,11 @@ const Navbar = () => {
                 height: "70px",
             }}
         >
+            {!isSidebarOpen && (
+                <button className="menu-button" onClick={onMenuClick}>
+                    ☰
+                </button>
+            )}
             {/* search bar */}
             <div
                 style={{
@@ -22,7 +27,8 @@ const Navbar = () => {
                     width: "300px",
                     backgroundColor: "#fff",
                     borderRadius: "4px",
-                    padding: "0 78px",
+                    paddingLeft: "78px",
+                    paddingRight: "20px",
                 }}
             >
                 <input
@@ -56,7 +62,13 @@ const Navbar = () => {
                     }}
                 >
                     <img src={BellIcon} alt="" />
-                    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            gap: "8px",
+                            alignItems: "center",
+                        }}
+                    >
                         <img src={Flag} alt="English" />
                         <span>English</span>
                     </div>

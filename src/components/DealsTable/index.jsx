@@ -74,14 +74,7 @@ const DealsTable = () => {
                     <option value="December">December</option>
                 </select>
             </div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: "12px",
-                    alignItems: "center",
-                }}
-            >
+            <div className="searchAndStatus">
                 <input
                     type="text"
                     placeholder="Search..."
@@ -100,13 +93,7 @@ const DealsTable = () => {
                     }}
                 />
                 <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        gap: "8px",
-                        alignItems: "center",
-                        marginTop: "16px",
-                    }}
+                    className="statusButtonWrapper"
                 >
                     <button
                         className="statusButton"
@@ -158,201 +145,211 @@ const DealsTable = () => {
             </div>
 
             {/* table */}
-            <table
+            <div
                 style={{
                     width: "100%",
-                    marginTop: "16px",
-                    borderCollapse: "collapse",
+                    overflowX: "auto",
                 }}
             >
-                <tHead>
-                    <tr
-                        style={{
-                            height: "40px",
-                            backgroundColor: "#F1F4F9",
-                        }}
-                    >
-                        <th
-                            className="tablehead"
+                <table
+                    style={{
+                        width: "100%",
+                        minWidth: "750px",
+                        marginTop: "16px",
+                        borderCollapse: "collapse",
+                    }}
+                >
+                    <tHead>
+                        <tr
                             style={{
-                                width: "22%",
+                                height: "40px",
+                                backgroundColor: "#F1F4F9",
                             }}
                         >
-                            Product Name
-                        </th>
-                        <th
-                            className="tablehead"
-                            style={{
-                                width: "22%",
-                            }}
-                        >
-                            Location
-                        </th>
-                        <th
-                            className="tablehead"
-                            style={{
-                                width: "20%",
-                            }}
-                        >
-                            Date - Time
-                        </th>
-                        <th
-                            className="tablehead"
-                            style={{
-                                width: "15%",
-                            }}
-                        >
-                            Piece
-                        </th>
-                        <th
-                            className="tablehead"
-                            style={{
-                                width: "15%",
-                            }}
-                        >
-                            Amount
-                        </th>
-                        <th
-                            className="tablehead"
-                            style={{
-                                width: "15%",
-                            }}
-                        >
-                            Status
-                        </th>
-                    </tr>
-                </tHead>
-
-                <tbody>
-                    {filteredDeals.length > 0 ? (
-                        filteredDeals.map((deal) => (
-                            <tr
-                                key={deal.id}
+                            <th
+                                className="tablehead"
                                 style={{
-                                    height: "62px",
-                                    borderBottom: "1px solid #EEEEEE",
+                                    width: "22%",
                                 }}
                             >
-                                <td
+                                Product Name
+                            </th>
+                            <th
+                                className="tablehead"
+                                style={{
+                                    width: "22%",
+                                }}
+                            >
+                                Location
+                            </th>
+                            <th
+                                className="tablehead"
+                                style={{
+                                    width: "20%",
+                                }}
+                            >
+                                Date - Time
+                            </th>
+                            <th
+                                className="tablehead"
+                                style={{
+                                    width: "15%",
+                                }}
+                            >
+                                Piece
+                            </th>
+                            <th
+                                className="tablehead"
+                                style={{
+                                    width: "15%",
+                                }}
+                            >
+                                Amount
+                            </th>
+                            <th
+                                className="tablehead"
+                                style={{
+                                    width: "15%",
+                                }}
+                            >
+                                Status
+                            </th>
+                        </tr>
+                    </tHead>
+
+                    <tbody>
+                        {filteredDeals.length > 0 ? (
+                            filteredDeals.map((deal) => (
+                                <tr
+                                    key={deal.id}
                                     style={{
-                                        padding: "0 20px",
-                                        fontFamily: "Nunito Sans",
-                                        fontSize: "14px",
-                                        color: "#202224",
-                                        lineHeight: "100%",
-                                        fontWeight: 600,
-                                        whiteSpace: "nowrap",
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
+                                        height: "62px",
+                                        borderBottom: "1px solid #EEEEEE",
                                     }}
                                 >
-                                    {deal.product}
-                                </td>
-                                <td
-                                    style={{
-                                        padding: "0 20px",
-                                        fontFamily: "Nunito Sans",
-                                        fontSize: "14px",
-                                        color: "#202224",
-                                        lineHeight: "100%",
-                                        fontWeight: 600,
-                                        whiteSpace: "nowrap",
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                    }}
-                                >
-                                    {deal.location}
-                                </td>
-                                <td
-                                    style={{
-                                        padding: "0 20px",
-                                        fontFamily: "Nunito Sans",
-                                        fontSize: "14px",
-                                        color: "#202224",
-                                        lineHeight: "100%",
-                                        fontWeight: 600,
-                                        whiteSpace: "nowrap",
-                                    }}
-                                >
-                                    {deal.date} - {deal.time}
-                                </td>
-                                <td
-                                    style={{
-                                        padding: "0 20px",
-                                        fontFamily: "Nunito Sans",
-                                        fontSize: "14px",
-                                        color: "#202224",
-                                        lineHeight: "100%",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    {deal.piece}
-                                </td>
-                                <td
-                                    style={{
-                                        padding: "0 20px",
-                                        fontFamily: "Nunito Sans",
-                                        fontSize: "14px",
-                                        color: "#202224",
-                                        lineHeight: "100%",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    {deal.amount}
-                                </td>
-                                <td
-                                    style={{
-                                        padding: "0 20px",
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    <span
+                                    <td
                                         style={{
-                                            display: "inline-block",
-                                            padding: "6px 14px",
-                                            borderRadius: "14px",
-                                            backgroundColor:
-                                                deal.status === "Delivered"
-                                                    ? "#00B69B"
-                                                    : deal.status === "Pending"
-                                                      ? "#FFF2DE"
-                                                      : "#FCE8E8",
-                                            color:
-                                                deal.status === "Delivered"
-                                                    ? "#FFFFFF"
-                                                    : deal.status === "Pending"
-                                                      ? "#C4780A"
-                                                      : "#B81F21",
+                                            padding: "0 20px",
                                             fontFamily: "Nunito Sans",
-                                            fontSize: "11px",
+                                            fontSize: "14px",
+                                            color: "#202224",
+                                            lineHeight: "100%",
                                             fontWeight: 600,
-                                            lineHeight: "1",
+                                            whiteSpace: "nowrap",
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
                                         }}
                                     >
-                                        {deal.status}
-                                    </span>
+                                        {deal.product}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: "0 20px",
+                                            fontFamily: "Nunito Sans",
+                                            fontSize: "14px",
+                                            color: "#202224",
+                                            lineHeight: "100%",
+                                            fontWeight: 600,
+                                            whiteSpace: "nowrap",
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
+                                        }}
+                                    >
+                                        {deal.location}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: "0 20px",
+                                            fontFamily: "Nunito Sans",
+                                            fontSize: "14px",
+                                            color: "#202224",
+                                            lineHeight: "100%",
+                                            fontWeight: 600,
+                                            whiteSpace: "nowrap",
+                                        }}
+                                    >
+                                        {deal.date} - {deal.time}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: "0 20px",
+                                            fontFamily: "Nunito Sans",
+                                            fontSize: "14px",
+                                            color: "#202224",
+                                            lineHeight: "100%",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        {deal.piece}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: "0 20px",
+                                            fontFamily: "Nunito Sans",
+                                            fontSize: "14px",
+                                            color: "#202224",
+                                            lineHeight: "100%",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        {deal.amount}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: "0 20px",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                display: "inline-block",
+                                                padding: "6px 14px",
+                                                borderRadius: "14px",
+                                                backgroundColor:
+                                                    deal.status === "Delivered"
+                                                        ? "#00B69B"
+                                                        : deal.status ===
+                                                            "Pending"
+                                                          ? "#FFF2DE"
+                                                          : "#FCE8E8",
+                                                color:
+                                                    deal.status === "Delivered"
+                                                        ? "#FFFFFF"
+                                                        : deal.status ===
+                                                            "Pending"
+                                                          ? "#C4780A"
+                                                          : "#B81F21",
+                                                fontFamily: "Nunito Sans",
+                                                fontSize: "11px",
+                                                fontWeight: 600,
+                                                lineHeight: "1",
+                                            }}
+                                        >
+                                            {deal.status}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td
+                                    colSpan="6"
+                                    style={{
+                                        textAlign: "center",
+                                        padding: "40px 0",
+                                        fontFamily: "Nunito Sans",
+                                        fontSize: "14px",
+                                        fontWeight: 600,
+                                        color: "#999999",
+                                    }}
+                                >
+                                    No Deal Details Available for this month.
                                 </td>
                             </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td
-                                colSpan="6"
-                                style={{
-                                    textAlign: "center",
-                                    padding: "40px 0",
-                                    fontFamily: "Nunito Sans",
-                                    fontSize: "14px",
-                                    fontWeight: 600,
-                                    color: "#999999",
-                                }}
-                            >
-                                No Deal Details Available for this month.
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

@@ -17,3 +17,32 @@
     font-weight: 700;
     color: #202224;
 }
+
+.searchAndStatus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.statusButtonWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .statusButtonWrapper {
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .searchAndStatus {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
